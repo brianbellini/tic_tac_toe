@@ -1,3 +1,26 @@
-body {
-    background: green;
+
+
+#board {
+
+    display: grid;
+    grid-template:  "cell cell cell"
+                    "cell cell cell"
+                    "cell cell cell";
+    grid-template-columns: 70px 70px 70px;
+    grid-template-rows: 70px 70px 70px;
+    border: 3px solid rgba(75, 75, 75, 1);
+
+    margin: 10 10;
+    width: 210px;
+
 }
+
+.cell {
+    border: 2px groove rgba(199, 199, 199, .4);
+    background-color: rgb(187, 187, 187);
+    text-align: center;
+    margin: -1px -1px;
+    /* padding: 50px; */
+    /* grid-area: auto; */
+}
+
