@@ -1,56 +1,64 @@
 /*~~~~~~ constants ~~~~~~*/
-// const WORDS = [
-//     'DEVELOPER', 'ENGINEER', 'NODE', 'JAVASCRIPT',
-//     'CODING', 'HTML', 'BACK END', 'GUI', 'BOOLEAN',
-//     'REACT', 'FUNCTION', 'COMPUTER SCIENCE',
-//     'SEPARATION OF CONCERNS'
-//   ];
-//   const WRONG_GUESS_HUNG_COUNT = 6;
-//   const SPRITE_WIDTH = 11.25;
-
+const ROW_TOTAL = 3;
+const COLUMN_TOTAL = 3;
 
 
 /*~~~~~~ app's state (variables) ~~~~~~*/
 let currentPlayer;
-let boardContents =  ['', '', '', '', '', '', '', '', '',];
+let boardContents = [[], [], []];
+let row = [];
+
 
   
 /*~~~~~~ cached element references ~~~~~~*/
-const board = document.getElementById('board');
+const boardCells = document.getElementsByClassName('cell');
 const button = document.getElementById('reset-button');
 const messageBanner = document.getElementById('message-banner');
 
 
 
 /*~~~~~~ event listeners ~~~~~~*/
-document.getElementById('board').addEventListener('click', squareClicked);
+document.getElementById('board').addEventListener('click', play);
 document.getElementById('reset-button').addEventListener('click', gameInitializer);
   
   
 /*~~~~~~ functions ~~~~~~*/
-
-function squareClicked(event) {
-    let square = event.target.textContent;
-    console.log(square);
-}
+gameInitializer();
 
 function changePlayer() {
-    return (currentPlayer === 'X') ? 'O' : 'X';
+    currentPlayer === 'X' ? currentPlayer = 'O' : currentPlayer = 'X';
 }
 
 function gameInitializer() {
     currentPlayer = 'X';
-
 }
 
 function play() {
+    let square = event.target.id;
+    event.target.textContent = currentPlayer
+    changePlayer();
+
+    gameStateCheck();
+}
+
+function gameStateCheck() {
+    let cellCounter = 0;
+    for (let rowI = 0; rowI < ROW_TOTAL; rowI++) {
+        // console.log(boardCells[cellCounter].textContent);
+        for (let columnI = 0; columnI < COLUMN_TOTAL; columnI++) {
+            // console.log(boardCells[cellCounter].textContent);
+            boardContents[rowI][columnI] = boardCells[cellCounter].textContent;
+            cellCounter++
+        }
+        
 
 
 
+
+    }
+    console.log(boardContents);
 }
 
 function render() {
-    for (cell in boardContents) {
 
-    }
 }
