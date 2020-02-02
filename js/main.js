@@ -7,6 +7,7 @@ const COLUMN_TOTAL = 3;
 let currentPlayer;
 let boardContents = [[], [], []];
 let row = [];
+let message = "";
 
 
   
@@ -35,8 +36,12 @@ function gameInitializer() {
 
 function play() {
     let square = event.target.id;
-    event.target.textContent = currentPlayer
-    changePlayer();
+    if (event.target.textContent === '') {
+        event.target.textContent = currentPlayer;
+        changePlayer();
+    } else {
+        message = 'Nice try!';
+    }
 
     gameStateCheck();
 }
@@ -44,19 +49,41 @@ function play() {
 function gameStateCheck() {
     let cellCounter = 0;
     for (let rowI = 0; rowI < ROW_TOTAL; rowI++) {
-        // console.log(boardCells[cellCounter].textContent);
         for (let columnI = 0; columnI < COLUMN_TOTAL; columnI++) {
-            // console.log(boardCells[cellCounter].textContent);
             boardContents[rowI][columnI] = boardCells[cellCounter].textContent;
             cellCounter++
         }
-        
-
-
-
-
     }
-    console.log(boardContents);
+    // console.log(boardContents);
+
+    // Check each ROW
+    for (let rowI = 0; rowI < ROW_TOTAL; rowI++) {
+        if ((boardContents[rowI].join('') === 'XXX') ||
+            (boardContents[rowI].join('') === 'OOO')) {
+
+            console.log('Winner');
+            break;
+        }
+    }
+    // Check each COLUMN
+    for (let columnI = 0; columnI < COLUMN_TOTAL; columnI++) {
+        if ((boardContents[0][columnI] + boardContents[1][columnI] + boardContents[2][columnI] === 'XXX') ||
+        (boardContents[0][columnI] + boardContents[1][columnI] + boardContents[2][columnI] === 'OOO')) {
+            console.log('Winner');
+            break;
+        }
+    }
+    // Check DIAGONALS
+
+        if ((boardContents[0][0] + boardContents[1][1] + boardContents[2][2] === 'XXX') ||
+            (boardContents[0][0] + boardContents[1][1] + boardContents[2][2] === 'OOO')) {
+            console.log('Winner'); 
+        } else if  ((boardContents[2][0] + boardContents[1][1] + boardContents[0][2] === 'XXX') ||
+                    (boardContents[2][0] + boardContents[1][1] + boardContents[0][2] === 'OOO')) {
+                    console.log('Winner'); 
+        }
+
+
 }
 
 function render() {
