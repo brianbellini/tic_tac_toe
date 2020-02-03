@@ -13,25 +13,30 @@ let message = "";
   
 /*~~~~~~ cached element references ~~~~~~*/
 const boardCells = document.getElementsByClassName('cell');
-const button = document.getElementById('reset-button');
+const button = document.getElementById('button');
 const messageBanner = document.getElementById('message-banner');
 
 
 
 /*~~~~~~ event listeners ~~~~~~*/
 document.getElementById('board').addEventListener('click', play);
-document.getElementById('reset-button').addEventListener('click', gameInitializer);
+document.getElementById('button').addEventListener('click', (resetBoard));
   
   
 /*~~~~~~ functions ~~~~~~*/
 gameInitializer();
 
+
+
 function changePlayer() {
     currentPlayer === 'X' ? currentPlayer = 'O' : currentPlayer = 'X';
 }
 
+
+
 function gameInitializer() {
     currentPlayer = 'X';
+    messageBanner.textContent = 'Good Luck!!!'
 }
 
 function play() {
@@ -44,6 +49,7 @@ function play() {
     }
 
     gameStateCheck();
+    messageBanner.textContent = message;
 }
 
 function gameStateCheck() {
@@ -54,14 +60,14 @@ function gameStateCheck() {
             cellCounter++
         }
     }
-    // console.log(boardContents);
+
 
     // Check each ROW
     for (let rowI = 0; rowI < ROW_TOTAL; rowI++) {
         if ((boardContents[rowI].join('') === 'XXX') ||
             (boardContents[rowI].join('') === 'OOO')) {
 
-            console.log('Winner');
+                message = 'Winner';
             break;
         }
     }
@@ -69,7 +75,7 @@ function gameStateCheck() {
     for (let columnI = 0; columnI < COLUMN_TOTAL; columnI++) {
         if ((boardContents[0][columnI] + boardContents[1][columnI] + boardContents[2][columnI] === 'XXX') ||
         (boardContents[0][columnI] + boardContents[1][columnI] + boardContents[2][columnI] === 'OOO')) {
-            console.log('Winner');
+            message = 'Winner';
             break;
         }
     }
@@ -77,15 +83,19 @@ function gameStateCheck() {
 
         if ((boardContents[0][0] + boardContents[1][1] + boardContents[2][2] === 'XXX') ||
             (boardContents[0][0] + boardContents[1][1] + boardContents[2][2] === 'OOO')) {
-            console.log('Winner'); 
+                message = 'Winner'; 
         } else if  ((boardContents[2][0] + boardContents[1][1] + boardContents[0][2] === 'XXX') ||
                     (boardContents[2][0] + boardContents[1][1] + boardContents[0][2] === 'OOO')) {
-                    console.log('Winner'); 
+                        message = 'Winner'; 
         }
 
 
 }
 
-function render() {
+/////////////////////////////////////////////////////////////////////////////////////////
 
+function resetBoard() {
+
+    document.getElementsByClassName('cells')   ('textContent', 'B');
+    console.log(document.getElementsByClassName('cell').textContent)
 }
