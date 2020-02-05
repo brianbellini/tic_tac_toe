@@ -32,8 +32,6 @@ function changePlayer() {
     currentPlayer === 'X' ? currentPlayer = 'O' : currentPlayer = 'X';
 }
 
-
-
 function gameInitializer() {
     currentPlayer = 'X';
     messageBanner.textContent = 'Good Luck!!!'
@@ -67,7 +65,7 @@ function gameStateCheck() {
         if ((boardContents[rowI].join('') === 'XXX') ||
             (boardContents[rowI].join('') === 'OOO')) {
 
-                message = 'Winner';
+                message = `${boardContents[rowI][0]} is winner`;
             break;
         }
     }
@@ -75,7 +73,7 @@ function gameStateCheck() {
     for (let columnI = 0; columnI < COLUMN_TOTAL; columnI++) {
         if ((boardContents[0][columnI] + boardContents[1][columnI] + boardContents[2][columnI] === 'XXX') ||
         (boardContents[0][columnI] + boardContents[1][columnI] + boardContents[2][columnI] === 'OOO')) {
-            message = 'Winner';
+            message = `${boardContents[0][columnI]} is winner`;
             break;
         }
     }
@@ -83,19 +81,15 @@ function gameStateCheck() {
 
         if ((boardContents[0][0] + boardContents[1][1] + boardContents[2][2] === 'XXX') ||
             (boardContents[0][0] + boardContents[1][1] + boardContents[2][2] === 'OOO')) {
-                message = 'Winner'; 
+                message = `${boardContents[0][0]} is winner`; 
         } else if  ((boardContents[2][0] + boardContents[1][1] + boardContents[0][2] === 'XXX') ||
                     (boardContents[2][0] + boardContents[1][1] + boardContents[0][2] === 'OOO')) {
-                        message = 'Winner'; 
+                        message = `${boardContents[2][0]} is winner`; 
         }
 
 
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////
-
 function resetBoard() {
-
-    document.getElementsByClassName('cells')   ('textContent', 'B');
-    console.log(document.getElementsByClassName('cell').textContent)
+    location.reload();
 }

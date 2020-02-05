@@ -13,6 +13,8 @@
     margin: 10 10;
     height: 211px;
     width: 211px;
+
+    margin: 0 auto;
     
 }
 
@@ -25,3 +27,20 @@
     /* grid-area: auto; */
 }
 
+#message-banner {
+    height: 50px;
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+h1 {
+    text-align: center;
+    margin: 0 auto;
+    height: 100px;
+}
+
+button {
+
+}
