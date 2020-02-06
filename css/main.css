@@ -15,6 +15,7 @@
     width: 211px;
 
     margin: 0 auto;
+
     
 }
 
@@ -22,6 +23,7 @@
     border: 2px groove rgba(199, 199, 199, .4);
     background-color: rgb(187, 187, 187);
     text-align: center;
+    font-size: 60px;
     margin: -1px -1px;
     /* padding: 50px; */
     /* grid-area: auto; */
@@ -42,5 +44,7 @@ h1 {
 }
 
 button {
+    display: block;
+    margin: 20px auto;
 
 }

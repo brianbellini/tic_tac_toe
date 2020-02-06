@@ -65,7 +65,7 @@ function gameStateCheck() {
         if ((boardContents[rowI].join('') === 'XXX') ||
             (boardContents[rowI].join('') === 'OOO')) {
 
-                message = `${boardContents[rowI][0]} is winner`;
+            message = `${boardContents[rowI][0]} is winner`;
             break;
         }
     }
@@ -81,10 +81,10 @@ function gameStateCheck() {
 
         if ((boardContents[0][0] + boardContents[1][1] + boardContents[2][2] === 'XXX') ||
             (boardContents[0][0] + boardContents[1][1] + boardContents[2][2] === 'OOO')) {
-                message = `${boardContents[0][0]} is winner`; 
+            message = `${boardContents[0][0]} is winner`; 
         } else if  ((boardContents[2][0] + boardContents[1][1] + boardContents[0][2] === 'XXX') ||
                     (boardContents[2][0] + boardContents[1][1] + boardContents[0][2] === 'OOO')) {
-                        message = `${boardContents[2][0]} is winner`; 
+            message = `${boardContents[2][0]} is winner`; 
         }
 
 
